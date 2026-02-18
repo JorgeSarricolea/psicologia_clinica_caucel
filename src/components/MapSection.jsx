@@ -1,6 +1,6 @@
 import { Box, Container, Typography } from '@mui/material';
 import { mapEmbed, contact } from '../config/content';
-import { SectionWrapper, AnimatedBlock, SectionDivider } from './Section';
+import { SectionWrapper, AnimatedBlock, SectionLabel } from './Section';
 
 export default function MapSection() {
   if (!mapEmbed?.enabled || !mapEmbed?.iframeSrc) return null;
@@ -10,7 +10,7 @@ export default function MapSection() {
       <Container maxWidth="lg">
         <AnimatedBlock>
           <Box sx={{ textAlign: 'center', mb: 4 }}>
-            <SectionDivider />
+            <SectionLabel>Encuéntranos</SectionLabel>
             <Typography variant="h4" component="h2" sx={{ mb: 1 }}>
               Ubicación
             </Typography>
@@ -25,15 +25,13 @@ export default function MapSection() {
             sx={{
               position: 'relative',
               width: '100%',
-              borderRadius: 2,
+              borderRadius: 3,
               overflow: 'hidden',
-              border: '1px solid',
-              borderColor: 'divider',
-              boxShadow: '0 4px 20px rgba(0,0,0,0.06)',
+              boxShadow: '0 8px 32px rgba(108,92,231,0.08)',
               '& iframe': {
                 display: 'block',
                 width: '100%',
-                height: { xs: 300, sm: 400 },
+                height: { xs: 300, sm: 420 },
                 border: 0,
               },
             }}

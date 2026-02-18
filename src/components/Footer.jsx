@@ -16,38 +16,43 @@ export default function Footer() {
     <Box
       component="footer"
       sx={{
-        py: 4,
+        py: 5,
         bgcolor: 'secondary.main',
         color: 'secondary.contrastText',
       }}
     >
       <Container maxWidth="lg">
-        <Box sx={{ textAlign: 'center', mb: 2 }}>
+        <Box sx={{ textAlign: 'center' }}>
           <Typography
             variant="h5"
             sx={{
-              fontFamily: '"Nunito", sans-serif',
-              fontWeight: 700,
+              fontFamily: '"Playfair Display", serif',
+              fontWeight: 600,
               color: 'primary.light',
-              mb: 1,
+              mb: 1.5,
             }}
           >
             {site.shortName}
           </Typography>
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2.5, justifyContent: 'center', mb: 2 }}>
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 3, justifyContent: 'center', mb: 3 }}>
             {footerLinks.map(({ id, label }) => (
               <Link
                 key={id}
                 href={`#${id}`}
                 color="inherit"
-                underline="hover"
-                sx={{ fontSize: '0.85rem', opacity: 0.7, '&:hover': { opacity: 1, color: 'primary.light' } }}
+                underline="none"
+                sx={{
+                  fontSize: '0.85rem',
+                  opacity: 0.6,
+                  transition: 'opacity 0.2s',
+                  '&:hover': { opacity: 1, color: 'primary.light' },
+                }}
               >
                 {label}
               </Link>
             ))}
           </Box>
-          <Typography variant="body2" sx={{ opacity: 0.5 }}>
+          <Typography variant="body2" sx={{ opacity: 0.4 }}>
             © {currentYear} {site.name}. Todos los derechos reservados.
           </Typography>
         </Box>

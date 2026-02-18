@@ -7,7 +7,7 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import SelfImprovementIcon from '@mui/icons-material/SelfImprovement';
 import TranslateIcon from '@mui/icons-material/Translate';
 import { services } from '../config/content';
-import { SectionWrapper, SectionDivider } from './Section';
+import { SectionWrapper, SectionLabel } from './Section';
 
 const MotionDiv = motion.create('div');
 
@@ -24,67 +24,63 @@ export default function Services() {
   if (!services?.length) return null;
 
   return (
-    <SectionWrapper id="servicios" bg="background.default">
+    <SectionWrapper id="servicios" bg="background.paper">
       <Container maxWidth="lg">
-        <Box sx={{ textAlign: 'center', mb: 5 }}>
-          <SectionDivider />
+        <Box sx={{ textAlign: 'center', mb: 6 }}>
+          <SectionLabel>Lo que ofrecemos</SectionLabel>
           <Typography variant="h4" component="h2">
-            Nuestros servicios
+            Servicios especializados
           </Typography>
         </Box>
 
-        <Box
-          sx={{
-            display: 'grid',
-            gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' },
-            gap: 3,
-          }}
-        >
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
           {services.map(({ icon, title, text }, i) => {
             const IconComponent = iconMap[icon] || PsychologyIcon;
             return (
               <MotionDiv
                 key={title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: i * 0.07 }}
+                transition={{ duration: 0.5, delay: i * 0.06 }}
               >
                 <Box
                   sx={{
-                    p: 3.5,
-                    bgcolor: 'background.paper',
-                    borderRadius: 2,
-                    border: '1px solid',
-                    borderColor: 'divider',
-                    height: '100%',
-                    transition: 'border-color 0.25s, box-shadow 0.25s',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 3,
+                    p: { xs: 2.5, sm: 3 },
+                    bgcolor: 'background.default',
+                    borderRadius: 3,
+                    transition: 'box-shadow 0.3s, transform 0.3s',
                     '&:hover': {
-                      borderColor: 'primary.main',
-                      boxShadow: '0 4px 20px rgba(92,107,192,0.08)',
+                      boxShadow: '0 8px 30px rgba(108,92,231,0.08)',
+                      transform: 'translateX(4px)',
                     },
                   }}
                 >
                   <Box
                     sx={{
-                      width: 48,
-                      height: 48,
-                      borderRadius: 2,
-                      bgcolor: 'rgba(92, 107, 192, 0.08)',
+                      width: 56,
+                      height: 56,
+                      borderRadius: '50%',
+                      bgcolor: 'rgba(108, 92, 231, 0.08)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      mb: 2,
+                      flexShrink: 0,
                     }}
                   >
-                    <IconComponent sx={{ fontSize: 26, color: 'primary.main' }} />
+                    <IconComponent sx={{ fontSize: 28, color: 'primary.main' }} />
                   </Box>
-                  <Typography variant="subtitle1" gutterBottom>
-                    {title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
-                    {text}
-                  </Typography>
+                  <Box sx={{ flex: 1 }}>
+                    <Typography variant="subtitle1" sx={{ mb: 0.25 }}>
+                      {title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {text}
+                    </Typography>
+                  </Box>
                 </Box>
               </MotionDiv>
             );

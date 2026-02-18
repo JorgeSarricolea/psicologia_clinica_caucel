@@ -5,7 +5,7 @@ import PlaceIcon from '@mui/icons-material/Place';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import LanguageIcon from '@mui/icons-material/Language';
 import { contact } from '../config/content';
-import { SectionWrapper, SectionDivider } from './Section';
+import { SectionWrapper, SectionLabel } from './Section';
 
 const MotionDiv = motion.create('div');
 
@@ -17,13 +17,27 @@ function ContactCard({ Icon, title, children, delay = 0 }) {
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
     >
-      <Box sx={{ textAlign: 'center' }}>
+      <Box
+        sx={{
+          p: 3.5,
+          bgcolor: 'background.paper',
+          borderRadius: 3,
+          boxShadow: '0 2px 16px rgba(108,92,231,0.05)',
+          textAlign: 'center',
+          height: '100%',
+          transition: 'transform 0.3s, box-shadow 0.3s',
+          '&:hover': {
+            transform: 'translateY(-4px)',
+            boxShadow: '0 12px 32px rgba(108,92,231,0.1)',
+          },
+        }}
+      >
         <Box
           sx={{
-            width: 56,
-            height: 56,
+            width: 52,
+            height: 52,
             borderRadius: '50%',
-            bgcolor: 'rgba(92, 107, 192, 0.08)',
+            bgcolor: 'rgba(108, 92, 231, 0.08)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -31,7 +45,7 @@ function ContactCard({ Icon, title, children, delay = 0 }) {
             mb: 2,
           }}
         >
-          <Icon sx={{ color: 'primary.main' }} />
+          <Icon sx={{ color: 'primary.main', fontSize: 24 }} />
         </Box>
         <Typography variant="subtitle1" gutterBottom>
           {title}
@@ -46,10 +60,10 @@ export default function Contact() {
   return (
     <SectionWrapper id="contacto" bg="background.default">
       <Container maxWidth="lg">
-        <Box sx={{ textAlign: 'center', mb: 5 }}>
-          <SectionDivider />
+        <Box sx={{ textAlign: 'center', mb: 6 }}>
+          <SectionLabel>Contáctanos</SectionLabel>
           <Typography variant="h4" component="h2">
-            Contacto
+            Estamos para ayudarte
           </Typography>
         </Box>
 
@@ -57,7 +71,7 @@ export default function Contact() {
           sx={{
             display: 'grid',
             gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' },
-            gap: 5,
+            gap: 3,
           }}
         >
           {contact.phone && (
@@ -105,7 +119,7 @@ export default function Contact() {
 
           {contact.address && (
             <ContactCard Icon={PlaceIcon} title="Dirección" delay={0.15}>
-              <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 220, mx: 'auto' }}>
+              <Typography variant="body2" color="text.secondary">
                 {contact.address}
               </Typography>
             </ContactCard>

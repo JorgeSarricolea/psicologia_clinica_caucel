@@ -5,7 +5,7 @@ import Diversity3Icon from '@mui/icons-material/Diversity3';
 import TransgenderIcon from '@mui/icons-material/Transgender';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import { features } from '../config/content';
-import { SectionWrapper, SectionDivider } from './Section';
+import { SectionWrapper, SectionLabel } from './Section';
 
 const MotionDiv = motion.create('div');
 
@@ -22,12 +22,13 @@ export default function Features() {
   return (
     <SectionWrapper
       id="caracteristicas"
-      bg="background.paper"
-      sx={{ borderTop: '1px solid', borderBottom: '1px solid', borderColor: 'divider' }}
+      sx={{
+        background: 'linear-gradient(180deg, #FAF9FE 0%, #F0EEFA 50%, #FAF9FE 100%)',
+      }}
     >
       <Container maxWidth="md">
-        <Box sx={{ textAlign: 'center', mb: 5 }}>
-          <SectionDivider />
+        <Box sx={{ textAlign: 'center', mb: 6 }}>
+          <SectionLabel>Nuestro compromiso</SectionLabel>
           <Typography variant="h4" component="h2">
             Un espacio seguro para ti
           </Typography>
@@ -37,7 +38,7 @@ export default function Features() {
           sx={{
             display: 'grid',
             gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
-            gap: 4,
+            gap: 3,
           }}
         >
           {features.map(({ icon, title, text }, i) => {
@@ -45,34 +46,47 @@ export default function Features() {
             return (
               <MotionDiv
                 key={title}
-                initial={{ opacity: 0, x: i % 2 === 0 ? -16 : 16 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
               >
-                <Box sx={{ display: 'flex', gap: 2, alignItems: 'flex-start' }}>
+                <Box
+                  sx={{
+                    p: 3.5,
+                    bgcolor: 'background.paper',
+                    borderRadius: 3,
+                    boxShadow: '0 2px 16px rgba(108,92,231,0.05)',
+                    height: '100%',
+                    textAlign: 'center',
+                    transition: 'transform 0.3s, box-shadow 0.3s',
+                    '&:hover': {
+                      transform: 'translateY(-4px)',
+                      boxShadow: '0 12px 32px rgba(108,92,231,0.1)',
+                    },
+                  }}
+                >
                   <Box
                     sx={{
-                      width: 48,
-                      height: 48,
+                      width: 60,
+                      height: 60,
                       borderRadius: '50%',
-                      bgcolor: 'rgba(92, 107, 192, 0.08)',
+                      bgcolor: 'rgba(108, 92, 231, 0.08)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      flexShrink: 0,
+                      mx: 'auto',
+                      mb: 2,
                     }}
                   >
-                    <IconComponent sx={{ fontSize: 24, color: 'primary.main' }} />
+                    <IconComponent sx={{ fontSize: 28, color: 'primary.main' }} />
                   </Box>
-                  <Box>
-                    <Typography variant="subtitle1" gutterBottom>
-                      {title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
-                      {text}
-                    </Typography>
-                  </Box>
+                  <Typography variant="subtitle1" gutterBottom>
+                    {title}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>
+                    {text}
+                  </Typography>
                 </Box>
               </MotionDiv>
             );

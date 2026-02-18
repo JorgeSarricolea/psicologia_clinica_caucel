@@ -2,7 +2,7 @@ import { Box, Container, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import { hours } from '../config/content';
-import { SectionWrapper, SectionDivider } from './Section';
+import { SectionWrapper, SectionLabel } from './Section';
 
 const MotionDiv = motion.create('div');
 
@@ -10,15 +10,23 @@ export default function Hours() {
   if (!hours?.length) return null;
 
   return (
-    <SectionWrapper id="horarios" bg="background.default">
-      <Container maxWidth="xs">
-        <Box sx={{ textAlign: 'center' }}>
-          <SectionDivider />
-          <ScheduleIcon sx={{ fontSize: 40, color: 'primary.main', mb: 1.5 }} />
-          <Typography variant="h4" component="h2" sx={{ mb: 3 }}>
-            Horarios
+    <SectionWrapper id="horarios" bg="background.paper">
+      <Container maxWidth="sm">
+        <Box sx={{ textAlign: 'center', mb: 4 }}>
+          <SectionLabel>Disponibilidad</SectionLabel>
+          <Typography variant="h4" component="h2">
+            Horarios de atención
           </Typography>
+        </Box>
 
+        <Box
+          sx={{
+            bgcolor: 'background.default',
+            borderRadius: 3,
+            p: { xs: 3, sm: 4 },
+          }}
+        >
+          <ScheduleIcon sx={{ fontSize: 36, color: 'primary.main', mb: 2, display: 'block', mx: 'auto' }} />
           {hours.map((row, i) => (
             <MotionDiv
               key={row.days}
@@ -31,8 +39,8 @@ export default function Hours() {
                 sx={{
                   display: 'flex',
                   justifyContent: 'space-between',
-                  py: 1.25,
-                  borderBottom: '1px solid',
+                  py: 1.5,
+                  borderBottom: i < hours.length - 1 ? '1px solid' : 'none',
                   borderColor: 'divider',
                 }}
               >

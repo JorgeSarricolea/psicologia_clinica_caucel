@@ -1,7 +1,7 @@
 import { Box, Container, Typography, Chip, Stack } from '@mui/material';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import { payments } from '../config/content';
-import { SectionWrapper, AnimatedBlock, SectionDivider } from './Section';
+import { SectionWrapper, AnimatedBlock, SectionLabel } from './Section';
 
 export default function Payments() {
   if (!payments?.enabled) return null;
@@ -9,11 +9,11 @@ export default function Payments() {
   const { description, methods } = payments;
 
   return (
-    <SectionWrapper id="pagos" bg="background.paper">
+    <SectionWrapper id="pagos" bg="background.default">
       <Container maxWidth="sm">
         <AnimatedBlock>
           <Box sx={{ textAlign: 'center' }}>
-            <SectionDivider />
+            <SectionLabel>Pagos</SectionLabel>
             <CreditCardIcon sx={{ fontSize: 40, color: 'primary.main', mb: 1.5 }} />
             <Typography variant="h4" component="h2" sx={{ mb: 1.5 }}>
               Formas de pago

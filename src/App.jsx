@@ -1,10 +1,10 @@
 import { Helmet } from 'react-helmet-async';
-import { Box, AppBar, Toolbar, Typography, Container, IconButton } from '@mui/material';
+import { Box, AppBar, Toolbar, Typography, Container, IconButton, Button } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { site } from './config/content';
+import { site, hero } from './config/content';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import Features from './components/Features';
@@ -20,11 +20,10 @@ import Footer from './components/Footer';
 const MotionDiv = motion.create('div');
 
 const navLinks = [
-  { id: 'inicio', label: 'Inicio' },
   { id: 'servicios', label: 'Servicios' },
   { id: 'caracteristicas', label: 'Nosotros' },
-  { id: 'horarios', label: 'Horarios' },
   { id: 'opiniones', label: 'Opiniones' },
+  { id: 'horarios', label: 'Horarios' },
   { id: 'contacto', label: 'Contacto' },
 ];
 
@@ -40,11 +39,10 @@ function NavLinks({ onClick }) {
           sx={{
             color: 'text.secondary',
             textDecoration: 'none',
-            fontWeight: 600,
-            fontSize: '0.85rem',
+            fontWeight: 500,
+            fontSize: '0.9rem',
             px: 1.5,
             py: 0.75,
-            borderRadius: 1,
             transition: 'color 0.2s',
             '&:hover': { color: 'primary.main' },
           }}
@@ -73,29 +71,39 @@ export default function App() {
         position="sticky"
         elevation={0}
         sx={{
-          bgcolor: 'rgba(248, 247, 252, 0.92)',
-          backdropFilter: 'blur(12px)',
+          bgcolor: 'rgba(250, 249, 254, 0.85)',
+          backdropFilter: 'blur(16px)',
           borderBottom: '1px solid',
           borderColor: 'divider',
         }}
       >
-        <Toolbar component={Container} maxWidth="lg" sx={{ minHeight: { xs: 56, md: 64 } }}>
+        <Toolbar component={Container} maxWidth="lg" sx={{ minHeight: { xs: 60, md: 68 } }}>
           <Typography
             component="a"
             href="#inicio"
             sx={{
               flexGrow: 1,
-              fontFamily: '"Nunito", sans-serif',
-              fontSize: '1.2rem',
-              fontWeight: 800,
+              fontFamily: '"Playfair Display", serif',
+              fontSize: '1.3rem',
+              fontWeight: 700,
               color: 'primary.main',
               textDecoration: 'none',
             }}
           >
             {site.shortName}
           </Typography>
-          <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 0.5 }}>
             <NavLinks />
+            <Button
+              href={hero.ctaPrimary.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="contained"
+              size="small"
+              sx={{ ml: 2, px: 3 }}
+            >
+              Agendar
+            </Button>
           </Box>
           <IconButton
             aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
@@ -113,6 +121,7 @@ export default function App() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
+              style={{ overflow: 'hidden' }}
             >
               <Box
                 sx={{
@@ -120,13 +129,24 @@ export default function App() {
                   flexDirection: 'column',
                   alignItems: 'center',
                   py: 3,
-                  gap: 1,
-                  bgcolor: 'rgba(248, 247, 252, 0.98)',
+                  gap: 1.5,
+                  bgcolor: 'rgba(250, 249, 254, 0.98)',
                   borderTop: '1px solid',
                   borderColor: 'divider',
                 }}
               >
                 <NavLinks onClick={() => setMobileOpen(false)} />
+                <Button
+                  href={hero.ctaPrimary.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="contained"
+                  size="small"
+                  sx={{ mt: 1, px: 4 }}
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Agendar cita
+                </Button>
               </Box>
             </MotionDiv>
           )}

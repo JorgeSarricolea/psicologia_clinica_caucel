@@ -4,9 +4,9 @@ const theme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#5C6BC0',
-      light: '#8E99D6',
-      dark: '#3F51B5',
+      main: '#6C5CE7',
+      light: '#A29BFE',
+      dark: '#4834D4',
       contrastText: '#ffffff',
     },
     secondary: {
@@ -16,35 +16,36 @@ const theme = createTheme({
       contrastText: '#ffffff',
     },
     background: {
-      default: '#f8f7fc',
+      default: '#FAF9FE',
       paper: '#ffffff',
     },
     text: {
       primary: '#2d2640',
-      secondary: '#6b6383',
+      secondary: '#7c7591',
     },
-    divider: 'rgba(0, 0, 0, 0.07)',
+    divider: 'rgba(108, 92, 231, 0.1)',
   },
   typography: {
     fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
     h1: {
-      fontFamily: '"Nunito", "Inter", sans-serif',
-      fontWeight: 800,
+      fontFamily: '"Playfair Display", "Georgia", serif',
+      fontWeight: 700,
       letterSpacing: '-0.02em',
+      lineHeight: 1.15,
     },
     h2: {
-      fontFamily: '"Nunito", "Inter", sans-serif',
-      fontWeight: 700,
+      fontFamily: '"Playfair Display", "Georgia", serif',
+      fontWeight: 600,
       letterSpacing: '-0.01em',
     },
     h3: {
-      fontFamily: '"Nunito", "Inter", sans-serif',
-      fontWeight: 700,
+      fontFamily: '"Playfair Display", "Georgia", serif',
+      fontWeight: 600,
     },
     h4: {
-      fontFamily: '"Nunito", "Inter", sans-serif',
-      fontWeight: 700,
-      fontSize: '1.75rem',
+      fontFamily: '"Playfair Display", "Georgia", serif',
+      fontWeight: 600,
+      fontSize: '1.85rem',
     },
     h5: {
       fontFamily: '"Inter", sans-serif',
@@ -55,16 +56,18 @@ const theme = createTheme({
       fontWeight: 600,
     },
     body1: {
-      lineHeight: 1.75,
+      lineHeight: 1.8,
+      fontSize: '1rem',
     },
     overline: {
       fontFamily: '"Inter", sans-serif',
       fontWeight: 600,
-      letterSpacing: '0.1em',
+      letterSpacing: '0.12em',
+      fontSize: '0.75rem',
     },
   },
   shape: {
-    borderRadius: 10,
+    borderRadius: 16,
   },
   components: {
     MuiButton: {
@@ -73,7 +76,8 @@ const theme = createTheme({
           textTransform: 'none',
           fontWeight: 600,
           fontFamily: '"Inter", sans-serif',
-          borderRadius: 10,
+          borderRadius: 50,
+          padding: '10px 28px',
         },
       },
     },
@@ -81,7 +85,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           fontWeight: 600,
-          color: '#5C6BC0',
+          color: '#6C5CE7',
         },
       },
     },
@@ -89,7 +93,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           fontFamily: '"Inter", sans-serif',
-          borderRadius: 8,
+          borderRadius: 50,
         },
       },
     },

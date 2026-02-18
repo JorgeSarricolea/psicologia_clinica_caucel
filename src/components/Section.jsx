@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const MotionBox = motion.create(Box);
 
-export function SectionWrapper({ id, children, sx = {}, bg = 'background.default', py = { xs: 8, md: 10 } }) {
+export function SectionWrapper({ id, children, sx = {}, bg = 'background.default', py = { xs: 8, md: 12 } }) {
   return (
     <Box
       component="section"
@@ -22,10 +22,10 @@ export function SectionWrapper({ id, children, sx = {}, bg = 'background.default
 export function AnimatedBlock({ children, delay = 0, ...motionProps }) {
   return (
     <MotionBox
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-40px' }}
-      transition={{ duration: 0.6, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
       {...motionProps}
     >
       {children}
@@ -33,18 +33,25 @@ export function AnimatedBlock({ children, delay = 0, ...motionProps }) {
   );
 }
 
-export function SectionDivider({ sx = {} }) {
+export function SectionLabel({ children }) {
   return (
     <Box
+      component="span"
       sx={{
-        width: 48,
-        height: 3,
-        bgcolor: 'primary.main',
-        mx: 'auto',
+        display: 'inline-block',
+        bgcolor: 'rgba(108, 92, 231, 0.08)',
+        color: 'primary.main',
+        fontWeight: 600,
+        fontSize: '0.75rem',
+        letterSpacing: '0.12em',
+        textTransform: 'uppercase',
+        px: 2,
+        py: 0.75,
+        borderRadius: 50,
         mb: 2,
-        borderRadius: 2,
-        ...sx,
       }}
-    />
+    >
+      {children}
+    </Box>
   );
 }
