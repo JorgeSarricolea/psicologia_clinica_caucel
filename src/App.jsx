@@ -158,12 +158,12 @@ export default function App() {
         <Hero />
         <Services />
         <Features />
+        <PromoBanner />
         <Planning />
         <Payments />
         <Parking />
         <Hours />
         <Testimonials />
-        <PromoBanner />
         <Contact />
         <Gallery />
         <MapSection />
