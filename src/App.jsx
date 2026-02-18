@@ -15,6 +15,7 @@ import Hours from './components/Hours';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import MapSection from './components/MapSection';
+import PromoBanner from './components/PromoBanner';
 import Gallery from './components/Gallery';
 import Footer from './components/Footer';
 
@@ -162,6 +163,7 @@ export default function App() {
         <Parking />
         <Hours />
         <Testimonials />
+        <PromoBanner />
         <Contact />
         <Gallery />
         <MapSection />

@@ -122,8 +122,17 @@ export const logo = '/logo-adipsi.png';
 export const galleryImages = [
   { src: '/consultorio-infantil.png', alt: 'Consultorio de terapia infantil' },
   { src: '/consultorio.png', alt: 'Consultorio de psicología con certificaciones' },
-  { src: '/terapia-lenguaje.png', alt: 'Servicio de terapia de lenguaje para niños - ADIPSI' },
 ];
+
+export const promoBanner = {
+  enabled: true,
+  image: '/terapia-lenguaje.png',
+  alt: 'Terapia de Lenguaje para niños - ADIPSI',
+  title: 'Terapia de Lenguaje para niños',
+  description: 'Evaluación, diagnóstico e intervención profesional. Nuevo servicio disponible en ADIPSI.',
+  ctaText: 'Solicitar información',
+  ctaHref: 'https://wa.me/529991350110?text=Hola%2C%20me%20interesa%20el%20servicio%20de%20terapia%20de%20lenguaje',
+};
 
 export const hero = {
   backgroundImage:
