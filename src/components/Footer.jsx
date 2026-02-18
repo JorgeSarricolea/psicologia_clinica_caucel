@@ -6,6 +6,7 @@ const footerLinks = [
   { id: 'servicios', label: 'Servicios' },
   { id: 'horarios', label: 'Horarios' },
   { id: 'contacto', label: 'Contacto' },
+  { id: 'galeria', label: 'Galería' },
   { id: 'ubicacion', label: 'Ubicación' },
 ];
 

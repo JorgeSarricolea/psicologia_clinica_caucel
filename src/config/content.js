@@ -117,6 +117,13 @@ export const testimonials = [
   },
 ];
 
+export const galleryImages = [
+  { src: '/consultorio-infantil.png', alt: 'Consultorio de terapia infantil' },
+  { src: '/consultorio.png', alt: 'Consultorio de psicología con certificaciones' },
+  { src: '/terapia-lenguaje.png', alt: 'Servicio de terapia de lenguaje para niños - ADIPSI' },
+  { src: '/logo-adipsi.png', alt: 'Logo ADIPSI - Atención Diagnóstico Psicológico' },
+];
+
 export const hero = {
   backgroundImage:
     'https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=1920&q=85',

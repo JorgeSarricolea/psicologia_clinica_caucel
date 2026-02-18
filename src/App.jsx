@@ -15,6 +15,7 @@ import Hours from './components/Hours';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import MapSection from './components/MapSection';
+import Gallery from './components/Gallery';
 import Footer from './components/Footer';
 
 const MotionDiv = motion.create('div');
@@ -25,6 +26,7 @@ const navLinks = [
   { id: 'opiniones', label: 'Opiniones' },
   { id: 'horarios', label: 'Horarios' },
   { id: 'contacto', label: 'Contacto' },
+  { id: 'galeria', label: 'Galería' },
 ];
 
 function NavLinks({ onClick }) {
@@ -163,6 +165,7 @@ export default function App() {
         <Hours />
         <Testimonials />
         <Contact />
+        <Gallery />
         <MapSection />
         <Footer />
       </Box>
