@@ -30,6 +30,15 @@ const navLinks = [
   { id: 'galeria', label: 'Galería' },
 ];
 
+function handleNavClick(e, id, onClose) {
+  e.preventDefault();
+  if (onClose) onClose();
+  setTimeout(() => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  }, 50);
+}
+
 function NavLinks({ onClick }) {
   return (
     <>
@@ -38,7 +47,7 @@ function NavLinks({ onClick }) {
           key={id}
           component="a"
           href={`#${id}`}
-          onClick={onClick}
+          onClick={(e) => handleNavClick(e, id, onClick)}
           sx={{
             color: 'text.secondary',
             textDecoration: 'none',
