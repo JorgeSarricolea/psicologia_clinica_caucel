@@ -117,11 +117,12 @@ export const testimonials = [
   },
 ];
 
+export const logo = '/logo-adipsi.png';
+
 export const galleryImages = [
   { src: '/consultorio-infantil.png', alt: 'Consultorio de terapia infantil' },
   { src: '/consultorio.png', alt: 'Consultorio de psicología con certificaciones' },
   { src: '/terapia-lenguaje.png', alt: 'Servicio de terapia de lenguaje para niños - ADIPSI' },
-  { src: '/logo-adipsi.png', alt: 'Logo ADIPSI - Atención Diagnóstico Psicológico' },
 ];
 
 export const hero = {

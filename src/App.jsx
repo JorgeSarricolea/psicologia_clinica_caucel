@@ -4,7 +4,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { site, hero } from './config/content';
+import { site, hero, logo } from './config/content';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import Features from './components/Features';
@@ -80,20 +80,18 @@ export default function App() {
         }}
       >
         <Toolbar component={Container} maxWidth="lg" sx={{ minHeight: { xs: 60, md: 68 } }}>
-          <Typography
+          <Box
             component="a"
             href="#inicio"
-            sx={{
-              flexGrow: 1,
-              fontFamily: '"Playfair Display", serif',
-              fontSize: '1.3rem',
-              fontWeight: 700,
-              color: 'primary.main',
-              textDecoration: 'none',
-            }}
+            sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', textDecoration: 'none' }}
           >
-            {site.shortName}
-          </Typography>
+            <Box
+              component="img"
+              src={logo}
+              alt={site.name}
+              sx={{ height: { xs: 38, md: 44 }, width: 'auto' }}
+            />
+          </Box>
           <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 0.5 }}>
             <NavLinks />
             <Button

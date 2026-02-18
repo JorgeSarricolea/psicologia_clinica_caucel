@@ -1,5 +1,5 @@
 import { Box, Container, Typography, Link } from '@mui/material';
-import { site } from '../config/content';
+import { site, logo } from '../config/content';
 
 const footerLinks = [
   { id: 'inicio', label: 'Inicio' },
@@ -24,17 +24,18 @@ export default function Footer() {
     >
       <Container maxWidth="lg">
         <Box sx={{ textAlign: 'center' }}>
-          <Typography
-            variant="h5"
+          <Box
+            component="img"
+            src={logo}
+            alt={site.name}
             sx={{
-              fontFamily: '"Playfair Display", serif',
-              fontWeight: 600,
-              color: 'primary.light',
+              height: 56,
+              width: 'auto',
               mb: 1.5,
+              filter: 'brightness(0) invert(1)',
+              opacity: 0.9,
             }}
-          >
-            {site.shortName}
-          </Typography>
+          />
           <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 3, justifyContent: 'center', mb: 3 }}>
             {footerLinks.map(({ id, label }) => (
               <Link
